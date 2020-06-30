@@ -9,7 +9,7 @@ variable "name" {
 variable "application" {
   type        = string
   default     = ""
-  description = "Application (e.g. `cd` or `clouddrove`)."
+  description = "Application (e.g. `aashish`)."
 }
 
 variable "environment" {
