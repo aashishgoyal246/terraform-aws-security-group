@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "git::https://github.com/aashishgoyal246/terraform-aws-vpc.git?ref=tags/0.12.1"
+  source = "git::https://github.com/aashishgoyal246/terraform-aws-vpc.git?ref=tags/0.12.0"
 
   name        = "vpc"
   application = "aashish"
@@ -31,5 +31,5 @@ module "security_group" {
   allowed_ports = [22, 80]
 
   ipv6_enabled = true
-  allowed_ipv6 = ["2405:201:5e00:36ff:1c86:48cf:e7c4:d74b/128", module.vpc.vpc_ipv6_cidr_block] 
+  allowed_ipv6 = ["2405:201:5e00:36ff:e1ba:13a0:2de:89af/128", module.vpc.vpc_ipv6_cidr_block] 
 }
