@@ -10,9 +10,8 @@ module "vpc" {
   environment = "test"
   label_order = ["environment", "application", "name"]
 
-  enabled                          = true
-  cidr_block                       = "10.10.0.0/16"
-  assign_generated_ipv6_cidr_block = true
+  enabled    = true
+  cidr_block = "10.10.0.0/16"
 }
 
 module "security_group" {
@@ -27,9 +26,6 @@ module "security_group" {
   vpc_id        = module.vpc.vpc_id
   description   = "Security Group for SSH, WebServer."
   protocol      = "tcp"
-  allowed_ip    = ["49.36.131.84/32", module.vpc.vpc_cidr_block]
+  allowed_ip    = ["202.173.125.218/32", module.vpc.vpc_cidr_block]
   allowed_ports = [22, 80]
-
-  ipv6_enabled = true
-  allowed_ipv6 = ["2405:201:5e00:36ff:e1ba:13a0:2de:89af/128", module.vpc.vpc_ipv6_cidr_block] 
 }
